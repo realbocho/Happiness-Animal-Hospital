@@ -142,7 +142,13 @@
   .contact-btn:hover{filter:brightness(1.05);transform:translateY(-1px);}
 
   /* Map */
-  .map-box{background:#fff;border-radius:20px;height:clamp(220px,40vw,300px);display:flex;align-items:center;justify-content:center;color:var(--muted);border:2px dashed #b9dcef;margin-bottom:18px;}
+  .map-embed{width:100%;height:clamp(280px,45vw,450px);border:0;border-radius:20px;display:block;
+    box-shadow:0 5px 16px rgba(18,115,171,.1);margin-bottom:14px;background:#fff;}
+  .map-link{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+    padding:14px;margin-bottom:18px;}
+  .map-link .go{background:#03c75a;color:#fff;font-weight:800;border-radius:999px;padding:12px 26px;font-size:.95rem;transition:.2s;}
+  .map-link:hover .go{filter:brightness(.95);}
+  .map-link .tip{color:var(--muted);font-size:.83rem;}
   .addr{text-align:center;color:var(--text);}
 
   footer{background:var(--blue-deep);color:rgba(255,255,255,.85);text-align:center;padding:34px 20px;font-size:.87rem;}
@@ -280,7 +286,11 @@
   <div class="wrap">
     <h2>오시는 길</h2>
     <p class="sub">주차 가능</p>
-    <div class="map-box">지도 영역 (네이버/카카오 지도를 넣어주세요)</div>
+    <iframe class="map-embed" src="https://naver.me/GFCHetHD" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <a class="map-link" href="https://naver.me/GFCHetHD" target="_blank" rel="noopener">
+      <span class="go">N 네이버 지도에서 보기</span>
+      <span class="tip">지도가 안 보이면 이 버튼을 눌러주세요</span>
+    </a>
     <p class="addr">📍 주소를 입력해 주세요 · ☎ 032-324-3004</p>
   </div>
 </section>
