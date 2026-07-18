@@ -59,15 +59,13 @@
   #about{position:relative;height:620vh;padding:0;}
   .about-sticky{position:sticky;top:0;height:100vh;overflow:hidden;
     display:flex;align-items:center;justify-content:center;}
+  .about-sticky{background:linear-gradient(90deg,#2aa1de 0%,var(--blue) 100%);}
   .about-sticky::before{content:"";position:absolute;inset:0;
-    background:url('director.jpg') right center/auto 100% no-repeat,linear-gradient(90deg,#5db4e2,#8fcbe8);}
+    background:url('director.jpg') right center/auto 100% no-repeat;
+    -webkit-mask-image:linear-gradient(90deg,transparent 38%,#000 72%);
+    mask-image:linear-gradient(90deg,transparent 38%,#000 72%);}
   .about-sticky::after{content:"";position:absolute;inset:0;
-    background:linear-gradient(90deg,
-      var(--blue) 0%, var(--blue) 16%,
-      rgba(30,147,214,.8) 34%,
-      rgba(30,147,214,.35) 55%,
-      rgba(30,147,214,.05) 78%,
-      rgba(30,147,214,0) 100%);}
+    background:linear-gradient(90deg,rgba(30,147,214,0) 60%,rgba(30,147,214,.15) 100%);}
   .about-head{position:absolute;top:clamp(40px,8vh,80px);left:clamp(20px,7vw,90px);z-index:1;text-align:left;}
   .about-head h2,.about-head .sub{color:#fff;margin-bottom:6px;text-align:left;}
   .g-line{position:absolute;z-index:1;left:clamp(20px,7vw,90px);width:min(58%,620px);text-align:left;
@@ -89,6 +87,8 @@
   @keyframes floatIn{from{transform:translateY(-12px);opacity:0;}to{transform:translateY(0);opacity:1;}}
   .book-float.hide{display:none;}
   .book-float h3{color:var(--blue-text);font-size:1.1rem;font-weight:800;margin-bottom:12px;}
+  .pri{display:inline-block;background:var(--blue);color:#fff;font-size:.72rem;font-weight:700;
+    padding:3px 10px;border-radius:999px;vertical-align:middle;margin-left:6px;}
   .book-float .call{display:block;background:var(--blue);color:#fff;font-weight:800;font-size:1.05rem;
     border-radius:12px;padding:13px;margin-bottom:12px;}
   .book-float .call:hover{filter:brightness(1.06);}
@@ -162,7 +162,8 @@
     header p br, .g-line br{display:none;}
     .g-line{width:auto;left:20px;right:20px;font-size:1rem;line-height:1.85;}
     /* 모바일: 사진이 보이도록 세로형 배치 + 반투명 오버레이 */
-    .about-sticky::before{background:url('director.jpg') center 25%/cover no-repeat,linear-gradient(90deg,#5db4e2,#8fcbe8);}
+    .about-sticky::before{background:url('director.jpg') center 25%/cover no-repeat;
+      -webkit-mask-image:none;mask-image:none;}
     .about-sticky::after{background:linear-gradient(180deg,
       rgba(30,147,214,.75) 0%, rgba(30,147,214,.45) 50%, rgba(30,147,214,.6) 100%);}
     .g-line{text-shadow:0 2px 10px rgba(15,95,142,.55);}
@@ -179,27 +180,25 @@
   <div class="nav-inner">
     <div class="logo">🐾 행복한<span>동물병원</span></div>
     <div class="menu">
-      <a href="#services">진료 안내</a>
-      <a href="#reserve">예약·상담</a>
-      <a href="#location">오시는 길</a>
       <a href="#about">원장 인삿말</a>
+      <a href="#reserve">예약·상담</a>
+      <a href="#services">진료 안내</a>
+      <a href="#location">오시는 길</a>
     </div>
   </div>
 </nav>
 
 <div class="book-float" id="bookFloat">
   <button class="close-x" id="bookClose">✕</button>
-  <h3>🐾 진료 예약</h3>
+  <h3>🐾 진료 예약 <span class="pri">예약진료 우선</span></h3>
   <a class="call" href="tel:032-324-3004">📞 032-324-3004</a>
   <table class="hours-table">
     <tr><td>월·화·목·금</td><td>10:00 – 19:00</td></tr>
     <tr><td>토요일</td><td>10:00 – 15:00</td></tr>
     <tr><td>점심시간</td><td>13:00 – 14:00</td></tr>
-    <tr class="off"><td>수요일</td><td>정기 휴무</td></tr>
-    <tr class="off"><td>일요일</td><td>정기 휴무</td></tr>
-    <tr class="off"><td>공휴일</td><td>당일 휴무</td></tr>
+    <tr class="off"><td>수요일 · 일요일 · 공휴일</td><td>휴무</td></tr>
   </table>
-  <p class="hours-note">※ 접수 마감: 평일 18:30 · 토요일 14:30<br>※ 예약진료 우선</p>
+  <p class="hours-note">※ 접수 마감: 평일 18:30 · 토요일 14:30</p>
 </div>
 <button class="book-mini" id="bookMini" title="진료 예약">🐾</button>
 
@@ -239,6 +238,30 @@
   </div>
 </section>
 
+<section id="reserve">
+  <div class="wrap">
+    <h2>예약 · 상담</h2>
+    <p class="sub">편하신 방법으로 문의해 주세요</p>
+    <div class="two-col">
+      <div class="panel">
+        <h3>진료 시간 <span class="pri">예약진료 우선</span></h3>
+        <table>
+          <tr><td>월·화·목·금</td><td>10:00 – 19:00</td></tr>
+          <tr><td>토요일</td><td>10:00 – 15:00</td></tr>
+          <tr><td>점심시간</td><td>13:00 – 14:00</td></tr>
+          <tr><td>수요일 · 일요일 · 공휴일</td><td>휴무</td></tr>
+        </table>
+        <p class="note">※ 접수 마감: 평일 18:30 · 토요일 14:30</p>
+      </div>
+      <div class="panel">
+        <h3>바로 문의하기</h3>
+        <a class="contact-btn" href="tel:032-324-3004">📞 전화 예약 032-324-3004</a>
+        <p class="note">※ 진료 예약은 전화로 받고 있습니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="services">
   <div class="wrap">
     <h2>진료 안내</h2>
@@ -256,32 +279,6 @@
       <li><span class="ico">🩺</span><strong>건강검진</strong><span class="desc">연령별 맞춤 검진 프로그램</span></li>
       <li><span class="ico">🏥</span><strong>입원 관리</strong><span class="desc">세심한 입원 치료와 회복 관리</span></li>
     </ul>
-  </div>
-</section>
-
-<section id="reserve">
-  <div class="wrap">
-    <h2>예약 · 상담</h2>
-    <p class="sub">편하신 방법으로 문의해 주세요</p>
-    <div class="two-col">
-      <div class="panel">
-        <h3>진료 시간</h3>
-        <table>
-          <tr><td>월·화·목·금</td><td>10:00 – 19:00</td></tr>
-          <tr><td>토요일</td><td>10:00 – 15:00</td></tr>
-          <tr><td>점심시간</td><td>13:00 – 14:00</td></tr>
-          <tr><td>수요일</td><td>정기 휴무</td></tr>
-          <tr><td>일요일</td><td>정기 휴무</td></tr>
-          <tr><td>공휴일</td><td>당일 휴무</td></tr>
-        </table>
-        <p class="note">※ 접수 마감: 평일 18:30 · 토요일 14:30<br>※ 예약진료 우선</p>
-      </div>
-      <div class="panel">
-        <h3>바로 문의하기</h3>
-        <a class="contact-btn" href="tel:032-324-3004">📞 전화 예약 032-324-3004</a>
-        <p class="note">※ 진료 예약은 전화로 받고 있습니다.</p>
-      </div>
-    </div>
   </div>
 </section>
 
