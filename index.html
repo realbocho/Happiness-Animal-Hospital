@@ -60,7 +60,7 @@
   .about-sticky{position:sticky;top:0;height:100vh;overflow:hidden;
     display:flex;align-items:center;justify-content:center;}
   .about-sticky::before{content:"";position:absolute;inset:0;
-    background:url('director.jpg') right center/cover no-repeat,linear-gradient(90deg,#5db4e2,#8fcbe8);}
+    background:url('director.jpg') right center/auto 100% no-repeat,linear-gradient(90deg,#5db4e2,#8fcbe8);}
   .about-sticky::after{content:"";position:absolute;inset:0;
     background:linear-gradient(90deg,
       var(--blue) 0%, var(--blue) 16%,
@@ -161,9 +161,11 @@
     /* 모바일: 수동 줄바꿈 해제하고 자연스럽게 흐르도록 */
     header p br, .g-line br{display:none;}
     .g-line{width:auto;left:20px;right:20px;font-size:1rem;line-height:1.85;}
-    /* 모바일은 사진 위 오버레이를 진하게 (가독성) */
-    .about-sticky::after{background:linear-gradient(90deg,
-      var(--blue) 0%, rgba(30,147,214,.92) 55%, rgba(30,147,214,.55) 100%);}
+    /* 모바일: 사진이 보이도록 세로형 배치 + 반투명 오버레이 */
+    .about-sticky::before{background:url('director.jpg') center 25%/cover no-repeat,linear-gradient(90deg,#5db4e2,#8fcbe8);}
+    .about-sticky::after{background:linear-gradient(180deg,
+      rgba(30,147,214,.75) 0%, rgba(30,147,214,.45) 50%, rgba(30,147,214,.6) 100%);}
+    .g-line{text-shadow:0 2px 10px rgba(15,95,142,.55);}
     .g-line h3{font-size:1.25rem;}
     .g-line.creds h4{font-size:1.15rem;}
     .g-line.creds{font-size:.92rem;}
